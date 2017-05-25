@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="UML">
+  <ClassDiagramComponents>
+    <Class name="Partida" package="" visibility="public" xPosition="302.0" yPosition="325.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="initSudoku" returnType="void" visibility="public">
+          <Argument type="int" name="dimension"/>
+          <Argument type="int" name="dificultad"/>
+        </Method>
+        <Method name="altaJugador" returnType="Jugador" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="localidad"/>
+        </Method>
+        <Method name="jugar" returnType="void" visibility="public"/>
+        <Method name="mostrarRanking" returnType="void" visibility="public"/>
+        <Method name="mostrarSolucion" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Sudoku" package="" visibility="public" xPosition="832.0" yPosition="352.0">
+      <Fields>
+        <Field name="celdas" type="int[][]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Jugador" package="" visibility="public" xPosition="84.0" yPosition="212.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="localidad" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Base de Datos" package="" visibility="public" xPosition="328.0" yPosition="152.0">
+      <Fields>
+        <Field name="conexion" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="conectar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Ranking" package="" visibility="public" xPosition="84.0" yPosition="454.0">
+      <Fields>
+        <Field name="puntos" type="int" visibility="private"/>
+        <Field name="jugador" type="Jugador" visibility="private"/>
+        <Field name="pueblo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="Dificultad" package="" visibility="public" xPosition="711.0" yPosition="116.0">
+      <Literals>
+        <Literal name="NIVEL1"/>
+        <Literal name="NIVEL2"/>
+        <Literal name="NIVEL3"/>
+      </Literals>
+    </Enum>
+    <Enum name="Dimension" package="" visibility="public" xPosition="528.0" yPosition="128.0">
+      <Literals>
+        <Literal name="NUEVE"/>
+        <Literal name="SEIS"/>
+        <Literal name="TRES"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="jugador" source="Partida" target="Jugador" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="dificultad" source="Partida" target="Dificultad" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="dimension" source="Partida" target="Dimension" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="listaJugador" source="Ranking" target="Jugador" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="Partida" target="Base de Datos" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sudoku" source="Partida" target="Sudoku" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="sudokuSolucionado" source="Partida" target="Sudoku" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
